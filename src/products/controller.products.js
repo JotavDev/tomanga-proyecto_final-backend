@@ -1,5 +1,5 @@
 import Router from 'express';
-import ProductManager  from '../../productManager.js';
+import ProductManager  from './productManager.js';
 
 const router = Router();
 const productos = new ProductManager();
@@ -27,8 +27,8 @@ router.post("/", (req, res) => {
 
 router.put("/:pid", (req, res) => {
     const { pid } = req.params
-    const { title, volume, editorial, author, description, price, thumbnail, stock, status } = req.body
-    const infoProduct = { title, volume, editorial, author, description, price, thumbnail, stock, status }
+    const { title, volume, editorial, author, description, price, thumbnail, stock, status, category } = req.body
+    const infoProduct = { title, volume, editorial, author, description, price, thumbnail, stock, status, category }
     productos.updateProduct(pid, infoProduct);
     res.status(201).json({ "message" : "Producto actualizado" })
 })
