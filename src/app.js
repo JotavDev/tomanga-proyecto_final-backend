@@ -20,14 +20,17 @@ const httpServer = app.listen(port, () => {
     console.log(`Server running at the server ${port}`)
 })
 
-const socketServer = new Server(httpServer)
+const io = new Server(httpServer)
 
-socketServer.on('connection', socket => {
-    console.log(`Nuevo cliente conectado`)
+io.on('connection', socket => {
     const id = socket.id
     socket.on('message', data => {
         console.log(data + ` ${id}`)
     })
 
     socket.emit('mensaje_para_todos', 'Nos conectamos')
+
+    socket.on('newProduct', product => {
+        socket.emit('addProduct', product)
+    })
 })

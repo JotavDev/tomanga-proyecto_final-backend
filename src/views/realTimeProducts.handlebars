@@ -1,0 +1,77 @@
+<header>
+    <nav>
+        <div class="welcomeImage">
+            <img class="firstImage" src="https://i.imgur.com/4p6uHIS.png" alt="">
+        </div>
+        <div class="divNavbar">
+            <ul class="ulNavbar">
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>INICIO</b></a></li>
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>TOKYO REVENGERS</b></a></li>
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>CHAINSAW MAN</b></a></li>
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>BEASTARS</b></a></li>
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>BOKU NO HERO</b></a></li>
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>SHINGEKI NO KYOJIN</b></a></li>
+                <li class="liNavbar"><a class="anchorNavbar" href=""><img class="iconsNavbar" class="imgNavbar" src="https://i.imgur.com/vVIc2Li.png" alt=""></a></li>
+                <li class="liNavbar"><a class="anchorNavbar" href=""><img class="iconsNavbar" class="imgNavbar" src="https://i.imgur.com/GD5HkfC.png" alt=""></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<section>
+    <div class="informationDiv">
+        <img class="informationImage" src="https://i.imgur.com/nV6UTea.jpg" alt="">
+        <div class="absoluteDiv">
+            <h2 class="comunication">
+                COMUNICADO
+            </h2>
+            <p class="comunicationParagraph">
+                DEBIDO A LOS PROBLEMAS QUE SE ESTÁN PRESENTANDO ACTUALMENTE EN LA ADUANA, ALGUNOS LANZAMIENTOS Y PEDIDOS PENDIENTES PODRÍAN CONTAR CON LEVES RETRASOS. ANTE CUALQUIER NOVEDAD, ESTAREMOS PUBLICANDO LOS AVANCES DE ESTE TEMA EN NUESTRAS REDES SOCIALES OFICIALES.
+            </p>
+            <button class="comunicationButton"><a class="comunicationAnchor" href=""><b>IR A LA TIENDA</b></a></button>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="featuredProducts">
+        <h1 class="featuredMangas">Mangas destacados</h1>
+    </div>
+</section>
+
+<div class="cardsContainer">
+    <div class="bigContainer">
+        {{#each product}}
+            <div class="productCards">
+                <img class="productImage" src="{{this.thumbnail}}">
+                <div class="textCardsContainer">
+                    <h2 class="cardsTexts cardTitle">{{this.title}}</h2>
+                    <h3 class="cardsTexts cardVolume">{{this.volume}}</h3>
+                    <h4 class="cardsTexts cardEditorial">{{this.editorial}}</h4>
+                    <h5 class="cardsTexts cardAuthor">{{this.author}}</h5>
+                    <h5 class="cardsTexts cardPrice"><b>{{this.price}}</b></h5>
+                    <p class="cardsTexts cardStock">{{this.stock}} unidades</p>
+                    <button class="seeMoreButton"><a class="seeMoreAnchor" href="">VER MÁS</a></button>
+                </div>
+            </div>
+        {{/each}}   
+    </div>
+</div>
+
+<footer>
+    <div class="iconsFooterGroup">
+        <img class="backgroundFooter" src="https://i.imgur.com/D9sZiw8.png" alt="footer-background">
+        <div class="iconsListContainer">
+            <ul class="ulFooter">
+                <li class="liFooter"><a href=""><img class="iconsFooter" src="https://i.imgur.com/CZHVTEg.png" alt=""></a></li>
+                <li class="liFooter"><a href=""><img class="iconsFooter" src="https://i.imgur.com/mrb29b5.png" alt=""></a></li>
+                <li class="liFooter"><a href=""><img class="logoFooter" src="https://i.imgur.com/SOkKtmX.png" alt=""></a></li>
+                <li class="liFooter"><a href=""><img class="iconsFooter" src="https://i.imgur.com/YqcLS5Q.png" alt=""></a></li>
+                <li class="liFooter"><a href=""><img class="iconsFooter" src="https://i.imgur.com/znYxgT8.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/real-time-products/controller.real-time-products.js"></script>

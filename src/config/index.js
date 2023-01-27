@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-dotenv.config("src/.env");
+dotenv.config("/.env");
 
 let port = process.env.PORT;
 
