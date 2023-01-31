@@ -26,7 +26,7 @@ export default class ProductManager{
         : console.log("Tienes que incluir toda la información de este artículo")
 
         await fs.promises.writeFile(this.path, JSON.stringify(products));
-        return newProduct;
+        return await this.getProducts();
     }
 
     getProductById = async (id) => {
@@ -48,6 +48,7 @@ export default class ProductManager{
         const products = await this.getProducts();
         let productoBorrado = products.filter((prod) => prod.id !== Number(id));
         await fs.promises.writeFile(this.path, JSON.stringify(productoBorrado));
+        return await this.getProducts()
     }
 }
 

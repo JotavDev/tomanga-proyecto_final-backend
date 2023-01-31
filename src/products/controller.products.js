@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     let product = await products;
     const { limit } = req.query;
     product = limit ? await product.slice(0, limit) : await product;
-    res.render("index.handlebars", {
+    res.render("home.handlebars", {
         product: await product,
         title: "Los mejores mangas",
         style: "/index.css"
@@ -25,8 +25,9 @@ router.get("/:pid", async (req, res) => {
 router.post("/", (req, res) => {
     const { title, volume, editorial, author, description, price, thumbnail, stock, status, category } = req.body;
     const newProduct = { title, volume, editorial, author, description, price, thumbnail, stock, status, category }
-    productos.addProduct(newProduct);
-    res.status(201).json({message: 'Producto creado'})
+    let product = productos.addProduct(newProduct);
+    // res.status(201).json({message: 'Producto creado'})
+    res.send(product)
 })
 
 router.put("/:pid", (req, res) => {
