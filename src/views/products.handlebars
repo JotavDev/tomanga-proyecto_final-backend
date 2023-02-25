@@ -5,7 +5,7 @@
         </div>
         <div class="divNavbar">
             <ul class="ulNavbar">
-                <li class="liNavbar hover"><a class="anchorNavbar" href="/"><b>INICIO</b></a></li>
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>INICIO</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>TOKYO REVENGERS</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>CHAINSAW MAN</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>BEASTARS</b></a></li>
@@ -18,37 +18,34 @@
     </nav>
 </header>
 
-<!-- Notificación -->
+<!-- Encabezado -->
 <section>
-    <div class="informationDiv">
-        <img class="informationImage" src="https://i.imgur.com/nV6UTea.jpg" alt="">
-        <div class="absoluteDiv">
-            <h2 class="comunication">
-                COMUNICADO
-            </h2>
-            <p class="comunicationParagraph">
-                DEBIDO A LOS PROBLEMAS QUE SE ESTÁN PRESENTANDO ACTUALMENTE EN LA ADUANA, ALGUNOS LANZAMIENTOS Y PEDIDOS PENDIENTES PODRÍAN CONTAR CON LEVES RETRASOS. ANTE CUALQUIER NOVEDAD, ESTAREMOS PUBLICANDO LOS AVANCES DE ESTE TEMA EN NUESTRAS REDES SOCIALES OFICIALES.
-            </p>
-            <button class="comunicationButton"><a class="comunicationAnchor" href="/products"><b>IR A LA TIENDA</b></a></button>
-        </div>
+    <div class="featuredProducts">
+        <h1 class="featuredMangas">Todos los productos</h1>
     </div>
 </section>
 
-<!-- Noticias -->
-<section>
-    <div class="noticiasBox">
-        <div class="contenedorNoticias">
-            <div class="noticias">
-                <img class="imagenNoticia1" src="https://i.imgur.com/87RecDI.png" alt="">
+<!-- Productos -->
+<div class="cardsContainer">
+    <div class="bigContainer">
+        {{#each product}}
+            <div class="productCards">
+                <img class="productImage" src="{{this.thumbnail}}">
+                <div class="textCardsContainer">
+                    <h2 class="cardsTexts cardTitle">{{this.title}}</h2>
+                    <h3 class="cardsTexts cardVolume">{{this.volume}}</h3>
+                    <h4 class="cardsTexts cardEditorial">{{this.editorial}}</h4>
+                    <h5 class="cardsTexts cardAuthor">{{this.author}}</h5>
+                    <h5 class="cardsTexts cardPrice"><b>{{this.price}}</b></h5>
+                    <p class="cardsTexts cardStock">{{this.stock}} unidades</p>
+                    <button class="seeMoreButton"><a class="seeMoreAnchor" href="">VER MÁS</a></button>
+                </div>
             </div>
-            <div class="noticias">
-                <img class="imagenNoticia2" src="https://i.imgur.com/n5lHxJZ.png" alt="">
-            </div>
-        </div>
+        {{/each}}   
     </div>
-</section>
+</div>
 
-<!-- Botón que redirige al chat -->
+<!-- Botón que redirige a la vista de chat -->
 <section>
     <div class="iconChatContainer">
         <a href="/api/chat"><img class="iconChat" src="https://i.imgur.com/nr0312M.png" alt=""></a>

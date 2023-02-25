@@ -1,6 +1,5 @@
 import Router  from 'express';
 import ProductManager  from '../dao/mongo/products/productManager.mongo.js';
-import productsModel from '../dao/models/products.model.js';
 
 const router = Router();
 
@@ -9,8 +8,9 @@ const product = new ProductManager()
 router.get('/', async (req, res) => {
     try{
         const response = await product.find()
-        res.render("home.handlebars", {
+        res.render("products.handlebars", {
             product: await response,
+            title: "| Los mejores mangas",
             style: "/index.css"
         })
     } catch(error){
@@ -18,4 +18,4 @@ router.get('/', async (req, res) => {
     }
 });
 
-export default router;
+export default router

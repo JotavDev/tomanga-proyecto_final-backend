@@ -5,7 +5,7 @@
         </div>
         <div class="divNavbar">
             <ul class="ulNavbar">
-                <li class="liNavbar hover"><a class="anchorNavbar" href="/"><b>INICIO</b></a></li>
+                <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>INICIO</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>TOKYO REVENGERS</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>CHAINSAW MAN</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>BEASTARS</b></a></li>
@@ -18,45 +18,33 @@
     </nav>
 </header>
 
-<!-- Notificación -->
-<section>
-    <div class="informationDiv">
-        <img class="informationImage" src="https://i.imgur.com/nV6UTea.jpg" alt="">
-        <div class="absoluteDiv">
-            <h2 class="comunication">
-                COMUNICADO
-            </h2>
-            <p class="comunicationParagraph">
-                DEBIDO A LOS PROBLEMAS QUE SE ESTÁN PRESENTANDO ACTUALMENTE EN LA ADUANA, ALGUNOS LANZAMIENTOS Y PEDIDOS PENDIENTES PODRÍAN CONTAR CON LEVES RETRASOS. ANTE CUALQUIER NOVEDAD, ESTAREMOS PUBLICANDO LOS AVANCES DE ESTE TEMA EN NUESTRAS REDES SOCIALES OFICIALES.
-            </p>
-            <button class="comunicationButton"><a class="comunicationAnchor" href="/products"><b>IR A LA TIENDA</b></a></button>
-        </div>
-    </div>
-</section>
+<div class="chat">
 
-<!-- Noticias -->
-<section>
-    <div class="noticiasBox">
-        <div class="contenedorNoticias">
-            <div class="noticias">
-                <img class="imagenNoticia1" src="https://i.imgur.com/87RecDI.png" alt="">
-            </div>
-            <div class="noticias">
-                <img class="imagenNoticia2" src="https://i.imgur.com/n5lHxJZ.png" alt="">
-            </div>
-        </div>
+  <div class="joinScreen">
+    <div class="imageChatContainer">
+      <img class="imageChat" src="https://i.imgur.com/nr0312M.png" alt="">
     </div>
-</section>
+      <form id="formEmail">
+        <h3 class="emailText">Ingresa tu dirección de correo electrónico</h3>
+        <input type="email" id="userEmail" placeholder="paquitaladelbarrio@test.com" name="userEmail">
+        <span class="validate"></span>
+        <button type="submit" id="sendEmail">Enviar</button>
+      </form>
+  </div>
 
-<!-- Botón que redirige al chat -->
-<section>
-    <div class="iconChatContainer">
-        <a href="/api/chat"><img class="iconChat" src="https://i.imgur.com/nr0312M.png" alt=""></a>
-        <span class="tooltip">¿Te ayudo?</span>
+  <div class="chatScreen">
+    <div class="chatBox">
+      </div>
+        <form id="formMessage">
+          <div class="formMessage">
+            <textarea type="text" id="userMessage" placeholder="Escribe tu mensaje..." name="userMessage"></textarea>
+            <button type="submit" id="sendMessage">Enviar</button>
+          </div>
+        </form>
     </div>
-</section>
+</div>
 
-<footer>
+{{!-- <footer>
     <div class="iconsFooterGroup">
         <div class="iconsListContainer">
             <ul class="ulFooter">
@@ -68,7 +56,7 @@
             </ul>
         </div>
     </div>
-</footer>
+</footer> --}}
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/socketServer.js"></script>
+<script type="module" src="/socket.io/socket.io.js"></script>
+<script type="module" src="/js/chat.js"></script>

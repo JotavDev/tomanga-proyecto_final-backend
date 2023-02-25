@@ -1,7 +1,6 @@
 import fs from "fs";
 
 export default class ProductManager{
-
     constructor(){
         this.path = './src/products/products.json';
     }
@@ -22,7 +21,7 @@ export default class ProductManager{
         newProduct.id = ++lastId
 
         newProduct.title && newProduct.volume && newProduct.editorial && newProduct.author && newProduct.description && newProduct.price && newProduct.thumbnail && newProduct.stock && newProduct.status && newProduct.category
-        ? products.push(newProduct) 
+        ? products.push(newProduct)
         : console.log("Tienes que incluir toda la información de este artículo")
 
         await fs.promises.writeFile(this.path, JSON.stringify(products));

@@ -1,38 +1,78 @@
 import Router from 'express';
-import CartManager from './cartManager.js';
-import ProductManager from '../products/productManager.js';
+import CartManager from '../dao/mongo/cart/cartManager.mongo.js';
 
 const router = Router();
-const productos = new ProductManager();
 const carts = new CartManager();
-let cart = carts.getCarts();
 
 router.get('/', async (req, res) => {
-    let carts = await cart;
-    const { limit } = req.query;
-    limit ? res.send(await carts.slice(0, limit)) : res.send(await carts);
+    try{
+        const response = await carts.find()
+        res.json({result: 'sucess', payload: response})
+    }catch(error){
+        res.json({ error: error.message })
+    }
 });
 
 router.get('/:cid', async (req, res) => {
-    const { cid } = req.params;
-    const cart = await carts.getCartById(cid);
-    res.send(cart.products);
+    try{
+        const { cid } = req.params;
+        const response = await carts.findById(cid);
+        res.json({ result: 'success', payload: response})
+    } catch(error){
+        res.json({ error: error.message})
+    }
+})
+
+router.post('/', async (req,res) => {
+    try{
+        const response = await carts.create();
+        res.json({ result: 'success', payload: response})
+    }catch(error){
+        res.json({ error: error.message})
+    }
 });
 
-router.post('/', (req, res) => {
-    const { products } = req.body;
-    let cart = { products };
-    console.log(cart)
-    carts.addCart(cart);
+router.post("/:cid/product/:pid", async (req, res) => {
+    try {
+      const { cid, pid } = req.params;
+      const response = await carts.addProdToCart(cid, pid);
+  
+      res.json({ result: "succes", payload: response });
+    } catch (error) {
+      res.json({ error: error.message });
+    }
+  });
 
-    res.status(201).json({ message: "Carrito creado"});
-});
+  router.put("/:cid/product/:pid", async (req, res) => {
+    try {
+      const { cid, pid } = req.params;
+      const { qty } = req.body;
+      const response = await carts.updateProducts(cid, pid, qty);
+      res.json({ response: response });
+    } catch (error) {
+      res.json({ error: error.message });
+    }
+  });
 
-router.post('/:cid/product/:pid', async (req, res) => {
-    const { cid, pid } = req.params;
-    const product = await productos.getProductById(pid);
-    const prod = await carts.addProductToCart(cid, product);
-    res.send(prod);
-});
+  router.delete("/:cid/product/:pid", async (req, res) => {
+    try {
+      const { cid, pid } = req.params;
+      const response = await carts.deleteProduct(cid, pid);
+  
+      res.json({ result: "succes", payload: response });
+    } catch (error) {
+      res.json({ error: error.message });
+    }
+  });
+
+  router.delete("/:cid", async (req, res) => {
+    try {
+      const { cid } = req.params;
+      const response = await carts.deleteAllProducts(cid);
+      res.json({ response: response });
+    } catch (error) {
+      res.json({ error: error.message });
+    }
+  });
 
 export default router;

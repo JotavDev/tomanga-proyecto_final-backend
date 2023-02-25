@@ -1,48 +1,80 @@
-import Router from 'express';
-import ProductManager  from './productManager.js';
+import Router  from 'express';
+import ProductManager  from '../dao/mongo/products/productManager.mongo.js';
+import {io} from '../app.js'
+
+const products = new ProductManager();
 
 const router = Router();
-const productos = new ProductManager();
-let products = productos.getProducts();
 
 router.get("/", async (req, res) => {
-    let product = await products;
-    const { limit } = req.query;
-    product = limit ? await product.slice(0, limit) : await product;
-    res.render("home.handlebars", {
-        product: await product,
-        title: "Los mejores mangas",
-        style: "/index.css"
-    })
-})
+  try {
+    const response = await products.find(req);
+    res.json(response);
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
 
 router.get("/:pid", async (req, res) => {
+  try {
     const { pid } = req.params;
-    const prod = await productos.getProductById(pid);
-    res.send(prod);
-})
+    const response = await products.findById(pid);
+    res.json({ result: "succes", payload: response });
+  } catch (error) {
+    res.json({ error: error, message });
+  }
+});
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
+  try {
     const { title, volume, editorial, author, description, price, thumbnail, stock, status, category } = req.body;
-    const newProduct = { title, volume, editorial, author, description, price, thumbnail, stock, status, category }
-    let product = productos.addProduct(newProduct);
-    // res.status(201).json({message: 'Producto creado'})
-    res.send(product)
-})
+    if (!title || !price) {
+      throw new Error("Debes ingresar todos los parametros");
+    }
+    const product = {
+      title, 
+      volume, 
+      editorial, 
+      author, 
+      description, 
+      price, 
+      thumbnail, 
+      stock, 
+      status: true, 
+      category
+    };
+    const response = await products.create(product);
 
-router.put("/:pid", (req, res) => {
-    const { pid } = req.params
-    const { title, volume, editorial, author, description, price, thumbnail, stock, status, category } = req.body
-    const infoProduct = { title, volume, editorial, author, description, price, thumbnail, stock, status, category }
-    productos.updateProduct(pid, infoProduct);
-    res.status(201).json({ "message" : "Producto actualizado" })
-})
+    const allProducts = await products.find(req);
+    console.log(allProducts, "esto es all products");
+    io.emit("newProducts", allProducts);
+    res.status(201).json({ result: "succes", payload: response });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
 
-router.delete("/:pid", (req, res) => {
-    const { pid } = req.params
-    productos.deleteProduct(pid);
-    console.log(pid)
-    res.status(201).json({ "message": "Producto borrado" })
-})
+router.delete("/", async (req, res) => {
+  try {
+    const response = await products.delete();
+    res.json({ result: "succes", payload: response });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
+
+router.delete("/:pid", async (req, res) => {
+  try {
+    const { pid } = req.params;
+    const response = await products.deleteById(pid);
+    const allProducts = await products.find(req);
+
+    io.emit("newProducts", allProducts);
+
+    res.json({ result: "succes", payload: response });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
 
 export default router;

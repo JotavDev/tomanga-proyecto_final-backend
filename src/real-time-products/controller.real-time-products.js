@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import ProductManager  from '../products/productManager.js';
+import ProductManager  from '../dao/mongo/products/productManager.mongo.js';
 import  { io }  from '../app.js';
 
 const router = Router();
-const productos = new ProductManager();
-let products = productos.getProducts();
+const response = new ProductManager();
+let products = response.find();
 
 router.get('/', async (req, res) => {
     let product = await products;
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         console.log(`Nuevo cliente conectado`)
     })
 
-    res.render("home.handlebars", {
+    res.render("products.handlebars", {
         product: await product,
         style: "/index.css",
         title: "Los mejores mangas"
