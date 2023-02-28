@@ -91,7 +91,6 @@ export default class cartsManager {
     return true;
   }
 
-  // Agrega productos al carrito
   async addProdToCart(cid, pid) {
     try {
       await this.CheckDocument(cid, pid);

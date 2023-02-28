@@ -8,6 +8,8 @@ let email = "";
 const joinScreen = document.querySelector(".joinScreen");
 const chatScreen = document.querySelector(".chatScreen");
 const sendMessage = document.querySelector("#sendMessage")
+const headerImage = document.querySelector(".welcomeImage")
+const footer = document.querySelector(".iconsFooterGroup")
 
 const emailRegex =
   /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/i;
@@ -30,6 +32,8 @@ formEmail.addEventListener("submit", async (event) => {
     inputEmail.style.borderBottomColor = "rgb(141, 238, 15)";
     email = inputEmail.value;
     joinScreen.style.display = "none";
+    headerImage.style.display = "none";
+    footer.style.display = "none";
     chatScreen.style.display = "flex";
   }
 });

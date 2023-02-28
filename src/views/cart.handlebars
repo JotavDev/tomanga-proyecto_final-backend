@@ -1,0 +1,122 @@
+<header>
+  <nav>
+    <div class="welcomeImage">
+      <img class="firstImage" src="https://i.imgur.com/4p6uHIS.png" alt="" />
+    </div>
+    <div class="divNavbar">
+      <ul class="ulNavbar">
+        <li class="liNavbar hover"><a class="anchorNavbar" href="/"><b
+            >INICIO</b></a></li>
+        <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>TOKYO
+              REVENGERS</b></a></li>
+        <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>CHAINSAW
+              MAN</b></a></li>
+        <li class="liNavbar hover"><a class="anchorNavbar" href=""><b
+            >BEASTARS</b></a></li>
+        <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>BOKU NO
+              HERO</b></a></li>
+        <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>SHINGEKI
+              NO KYOJIN</b></a></li>
+        <li class="liNavbar"><a class="anchorNavbar" href=""><img
+              class="iconsNavbar"
+              class="imgNavbar"
+              src="https://i.imgur.com/vVIc2Li.png"
+              alt=""
+            /></a></li>
+        <li class="liNavbar"><a class="anchorNavbar" href=""><img
+              class="iconsNavbar"
+              class="imgNavbar"
+              src="https://i.imgur.com/GD5HkfC.png"
+              alt=""
+            /></a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="cartContainer">
+    <div class="subCartContainer">
+        <div class="detailsCartContainer">
+            <div class="cartDetails">
+            {{#each products}}
+                <div class="itemCart">
+                    <div class="imgCart">
+                        <img src="{{this.product.thumbnail}}"/>
+                    </div>
+                    <div class="textDetails">
+                        <table>
+                            <tr>
+                                <td class="title">{{this.product.title}}</td>
+                                <td class="volume">{{this.product.volume}}</td>
+                                <td class="generalDetails">Precio: {{this.product.price}}</td>
+                                <td class="generalDetails">Cantidad: {{this.qty}}</td>
+                                <td class="generalDetails">Total: {{this.product.price}}</td>
+                                <td id="tdImage"><img data-id="{{this._id}}" class="trashIcon" src="https://i.imgur.com/FM4la5Q.png" alt="trash icon" title="Borrar producto"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+            <div class="cartResume">
+                <div class="purchaseDetail">
+                    <div class="resumeContainer">
+                        <h2 class="titleDetail">Detalles de tu compra</h2>
+                        <div class="specifications">
+                            <p class="generalDetails">Total de productos:</p>
+                            <p class="generalDetails">1</p>
+                        </div>
+                        <div class="specifications">
+                            <p class="generalDetails">Valor total:</p>
+                            <p class="generalDetails">$20.98</p>
+                        </div>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="finishPurchaseButton"><a class="comunicationAnchor" href="">Finalizar compra</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="iconChatContainer">
+        <a href="/api/chat"><img class="iconChat" src="https://i.imgur.com/nr0312M.png" alt=""></a>
+        <span class="tooltip">¿Te ayudo?</span>
+    </div>
+</section>
+
+<footer>
+  <div class="iconsFooterGroup">
+    <div class="iconsListContainer">
+      <ul class="ulFooter">
+        <li class="liFooter"><a href=""><img
+              class="iconsFooter"
+              src="https://i.imgur.com/CZHVTEg.png"
+              alt=""
+            /></a></li>
+        <li class="liFooter"><a href=""><img
+              class="iconsFooter"
+              src="https://i.imgur.com/mrb29b5.png"
+              alt=""
+            /></a></li>
+        <li class="liFooter"><a href=""><img
+              class="logoFooter"
+              src="https://i.imgur.com/SOkKtmX.png"
+              alt=""
+            /></a></li>
+        <li class="liFooter"><a href=""><img
+              class="iconsFooter"
+              src="https://i.imgur.com/YqcLS5Q.png"
+              alt=""
+            /></a></li>
+        <li class="liFooter"><a href=""><img
+              class="iconsFooter"
+              src="https://i.imgur.com/znYxgT8.png"
+              alt=""
+            /></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

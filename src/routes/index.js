@@ -5,6 +5,7 @@ import home from '../home-page/controller.home-page.js'
 import realTimeProducts from '../real-time-products/controller.real-time-products.js'
 import chat from '../chat/chat.controller.js'
 import messages from '../chat/messages.controller.js'
+import cartView from '../carts/controller.cartView.js'
 
 const routes = (app) => {
     app.use('/api/products', products)
@@ -14,6 +15,7 @@ const routes = (app) => {
     app.use('/realtimeproducts', realTimeProducts)
     app.use('/api/chat', chat)
     app.use('/api/messages', messages)
+    app.use('/cart', cartView)
 }
 
 export default routes;

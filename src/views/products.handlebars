@@ -11,7 +11,7 @@
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>BEASTARS</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>BOKU NO HERO</b></a></li>
                 <li class="liNavbar hover"><a class="anchorNavbar" href=""><b>SHINGEKI NO KYOJIN</b></a></li>
-                <li class="liNavbar"><a class="anchorNavbar" href=""><img class="iconsNavbar" class="imgNavbar" src="https://i.imgur.com/vVIc2Li.png" alt=""></a></li>
+                <li class="liNavbar"><a class="anchorNavbar" href="cart/63f7f777e0ca673798416a4e"><img class="iconsNavbar" class="imgNavbar" src="https://i.imgur.com/vVIc2Li.png" alt=""></a></li>
                 <li class="liNavbar"><a class="anchorNavbar" href=""><img class="iconsNavbar" class="imgNavbar" src="https://i.imgur.com/GD5HkfC.png" alt=""></a></li>
             </ul>
         </div>
@@ -38,10 +38,23 @@
                     <h5 class="cardsTexts cardAuthor">{{this.author}}</h5>
                     <h5 class="cardsTexts cardPrice"><b>{{this.price}}</b></h5>
                     <p class="cardsTexts cardStock">{{this.stock}} unidades</p>
-                    <button class="seeMoreButton"><a class="seeMoreAnchor" href="">VER MÁS</a></button>
+                    <button data-id="{{this._id}}" class="addButton seeMoreAnchor">Agregar</button>
                 </div>
             </div>
         {{/each}}   
+    </div>
+    <div class="pagination">
+        <ul class="pagination">
+            <li>
+                <a{{#if pages.prevLink}} href="{{this.pages.prevLink}}" {{else}} href="" style="visibility: hidden" {{/if}}><< Antes</a>
+            </li>
+            <li id="paginationNumber">
+                {{pages.page}}
+            </li>
+            <li>
+                <a{{#if pages.nextLink}} href="{{this.pages.nextLink}}" {{else}} href="" style="visibility: hidden" {{/if}}> Siguiente >></a>
+            </li>
+        </ul>
     </div>
 </div>
 
@@ -69,3 +82,4 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/socketServer.js"></script>
+<script src="/js/products.js"></script>

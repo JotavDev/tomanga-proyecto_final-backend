@@ -7,11 +7,12 @@ const product = new ProductManager()
 
 router.get('/', async (req, res) => {
     try{
-        const response = await product.find()
+        const response = await product.find(req)
         res.render("products.handlebars", {
-            product: await response,
+            product: await response.payload,
             title: "| Los mejores mangas",
-            style: "/index.css"
+            style: "/index.css",
+            pages: await response
         })
     } catch(error){
         res.status(500).json({error})

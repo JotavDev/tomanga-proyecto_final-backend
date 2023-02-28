@@ -1,14 +1,13 @@
 @font-face{
     font-family: "manga";
-    src: url(src/public/fonts/Manga.otf);
+    src: url(/fonts/Manga.otf);
     font-family: 'bebas-neue';
-    src: url(src/public/fonts/Bebas-Regular.otf)
+    src: url(/fonts/Bebas-Regular.otf)
 }
 
 *{
     margin: 0;
     padding: 0;
-    /*background-image: url(https://i.imgur.com/hOQXM9u.jpg);*/
 }
 
 /* Icono de chat */
@@ -119,7 +118,7 @@
 
 .liNavbar{
     margin: 0.5% 2%;
-    font-size: 18px;
+    font-size: 17px;
     font-family: "bebas-neue", sans-serif;
     border-bottom: 3px solid transparent;
 }
@@ -182,7 +181,7 @@
 
 .comunicationParagraph{
     font-family: 'bebas-neue', sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     color: white;
     text-align: center;
     padding: 0 30%;
@@ -220,6 +219,7 @@
     width: 100%;
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -351,12 +351,12 @@
     font-size: 10px;
 }
 
-.seeMoreButton{
+.addButton{
     padding: 2px;
     width: 40%;
     border-radius: 25px;
     background-color: #8d0000;
-    margin-top: 2px;
+    margin-top: 10px;
 }
 
 .seeMoreAnchor{
@@ -371,10 +371,10 @@
 
 .chat{
     width: 100%;
-    height: 600px;
+    height: calc(100vh - 46.5px);
     background: #FFFFFF;
 }
-/*LOGIN */
+
 .joinScreen{
     width: 100%;
     height: 100%;
@@ -397,10 +397,10 @@
     width: 100%;
     height: 100%;
 }
+
 #formEmail{
     width: 50%;
     height: 60%;
-    /* background: #8d0000; */
     background-image: url('https://i.imgur.com/5PoENuC.png');
     display: flex;
     flex-direction: column;
@@ -452,7 +452,7 @@
     flex-direction: column;
     align-items: end;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url('https://i.imgur.com/5PoENuC.png');
 }
 
@@ -512,9 +512,193 @@
     background-color: #8d0000;
     color: #FFFFFF;
     align-self:flex-end ;
+    margin-top: 5px;
 }
 .other{
     background-color: #8d0000;
     color: #FFFFFF;
     align-self:flex-start ;
+    margin-top: 5px;
+}
+
+/* Pagination */
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.pagination li{
+    margin: 0 15px;
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 20px;
+    color: #8d0000;
+}
+
+.pagination li a{
+    text-decoration: none;
+    color: #8d0000
+}
+
+.pagination li a:visited{
+    color: #8d0000;
+}
+
+#paginationNumber{
+    color: #2a2f34;
+}
+
+/* Cart */
+
+.cartContainer{
+    width: 100%;
+    height: calc(100vh - 278.5px);
+    display: flex;
+    justify-content: center;
+    align-items: top;
+}
+
+.subCartContainer{
+    width: 80%;
+    margin-top: 35px;
+}
+
+.detailsCartContainer{
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
+}
+
+.cartDetails{
+    width: 80%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow-y: auto;
+}
+
+.itemCart{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #2a2f34;
+}
+
+.imgCart{
+    width: 12%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.imgCart img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.imgCart img:hover{
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.textDetails{
+    width: 80%;
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.cartResume{
+    width: 20%;
+    height: 50%;
+    background-image: url('https://i.imgur.com/hOQXM9u.jpg');
+    background-size: cover;
+}
+
+td{
+    width: 15%
+}
+
+#tdImage{
+    width: 10%
+}
+
+.title{
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 1.7em;
+    color: #8d0000;
+    width: 30%;
+}
+
+.volume{
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 1.3em;
+    color: #2a2f34;
+}
+
+.generalDetails{
+    font-family: 'bebas-neue', sans-serif;
+    margin-top: 2px;
+    color: #2a2f34;
+}
+
+.purchaseDetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    align-items: center ;
+    height: 100%;
+}
+
+.resumeContainer{
+    margin-top: 20px;
+    width: 100%;
+    height: 80%;
+}
+
+.titleDetail{
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 1.5em;
+    color: #8d0000;
+    padding: 0 0 0 20px;
+    margin-right: 0;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.specifications{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.finishPurchaseButton{
+    margin-bottom: 20px;
+    color: #2a2f34;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #8d0000;
+    width: 100%;
+}
+
+.trashIcon{
+    width: 30%;
+    height: 30%;
 }
