@@ -47,10 +47,7 @@
                         <h2 class="renderedRol"></h2>
                     </a>
                 </li>
-                <li class="liNavbar">
-                    <a class="anchorNavbar" href="">
-                        <b>Cerrar sesion</b>
-                    </a>
+                <li class="liNavbar" id="logout">
                 </li>
             </ul>
         </div>
@@ -75,8 +72,9 @@
             </div>
             <div class="profileSections" id="firstSectionProfile">
                 <h4>Informacion personal</h4>
-                <h6 class="firstItem">Datos de usuario</h6>
-                <h6>Datos de envío</h6>
+                <h6 class="firstItem">Nombre: {{user.first_name}}</h6>
+                <h6>Apellidos: {{user.last_name}}</h6>
+                <h6>Email: {{user.email}}</h6>
             </div>
             <div class="profileSections">
                 <h4>Mis compras</h4>
