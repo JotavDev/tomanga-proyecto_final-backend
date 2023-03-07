@@ -123,6 +123,21 @@
     border-bottom: 3px solid transparent;
 }
 
+#anchorUser{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 0;
+}
+
+.renderedRol{
+    margin-left: 8px;
+    font-size: 17px;
+    font-family: "bebas-neue", sans-serif;
+    border-bottom: 3px solid transparent;
+    /* display: none */
+}
+
 .hover:hover{
     border-bottom: 3px solid #8d0000;
     padding-bottom: 3px;
@@ -285,9 +300,9 @@
 /* Footer */
 
 .iconsFooterGroup{
+    margin-top: 18px;
     width: 100%;
     height: 20vh;
-    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -701,4 +716,245 @@ td{
 .trashIcon{
     width: 30%;
     height: 30%;
+}
+
+.loginContainer{
+    width: 100%;
+    height: calc(100vh - 544px);
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.loginContent{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBox{
+    width: 100%;
+    height: 70%;
+    background-image: url('https://i.imgur.com/hOQXM9u.jpg');
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inputsContainer{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructions{
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 1.2em;
+    color: #8d0000;
+}
+
+.loginInput{
+    width: 70%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #8d0000;
+    height: 1.5em;
+    margin-top: 2em;
+}
+
+.loginInput::placeholder{
+    color: #2a2f34;
+    text-align: center;
+}
+
+#setCookie{
+    width: 35%;
+    height: 30px;
+    background-color: #2a2f34;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 17px;
+}
+
+.options{
+    display: flex;
+    gap: 600px;
+}
+
+.options a{
+    text-decoration: none;
+    font-family: 'bebas-neue', sans-serif;
+    color: #2a2f34;
+}
+
+/* ---- Profile ---- */
+
+.profileContainer{
+    width: 100%;
+    height: calc(100vh - 278.5px);
+    display: flex;
+}
+
+.profileDetails{
+    width: 20%;
+    height: 100%;
+    background-image: url('https://i.imgur.com/CeKYC5B.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.userName{
+    margin-top: 15px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+}
+
+.welcomeToProfileMessage{
+    font-family: 'bebas-neue', sans-serif;
+    color: #FFFFFF;
+    margin-left: 15px;
+}
+
+.avatar{
+    width: 90px;
+    height: 90px;
+    margin-right: 15px;
+}
+
+#firstSectionProfile{
+    margin-top: 30px;
+}
+
+.profileSections{
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.profileSections h4{
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 1.5em;
+    color: #FFFFFF;
+    border-bottom: solid #8d0000 2px;
+}
+
+.profileSections h5{
+    font-family: 'bebas-neue', sans-serif;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    text-align: right;
+    margin: 35px 20px 0 0;
+}
+
+.profileSections h6{
+    margin-left: 30px;
+    margin-top: 10px;
+    color: #FFFFFF;
+    font-size: 1em;
+    font-family: 'bebas-neue', sans-serif;
+}
+
+.profileSections a{
+    text-decoration: none;
+}
+
+.firstItem{
+    margin-top: 15px;
+}
+
+.profileConfiguration{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- Signup ---- */
+
+.signupPage{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signupImages{
+    width: 33.3%;
+}
+
+.signupImage{
+    width: 100%;
+    height: auto;
+}
+
+.signupContainer{
+    width: 60%;
+    height: calc(100vh - 258px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#signupForm{
+    background-image: url('https://i.imgur.com/hOQXM9u.jpg');
+    background-size: cover;
+    width: 60%;
+    height: 80%;
+    border: solid #8d0000 2px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#signupForm h2{
+    font-family: 'manga', sans-serif;
+    font-size: 3.5em;
+}
+
+.labels{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.labels label{
+    font-size: 1.2em;
+    font-family: 'bebas-neue', sans-serif;
+}
+
+.labels input{
+    width: 60%;
+    height: 20px;
+    text-align: center;
+}
+
+.buttonSignup{
+    margin-top: 20px;
+    width: 60%;
+    height: 30px;
+    background-color: #8d0000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 1.1em;
 }

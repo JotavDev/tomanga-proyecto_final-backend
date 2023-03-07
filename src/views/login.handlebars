@@ -57,47 +57,7 @@
     </nav>
 </header>
 
-<!-- Encabezado -->
-<section>
-    <div class="featuredProducts">
-        <h1 class="featuredMangas">Todos los productos</h1>
-    </div>
-</section>
-
-<!-- Productos -->
-<div class="cardsContainer">
-    <div class="bigContainer">
-        {{#each product}}
-            <div class="productCards">
-                <img class="productImage" src="{{this.thumbnail}}">
-                <div class="textCardsContainer">
-                    <h2 class="cardsTexts cardTitle">{{this.title}}</h2>
-                    <h3 class="cardsTexts cardVolume">{{this.volume}}</h3>
-                    <h4 class="cardsTexts cardEditorial">{{this.editorial}}</h4>
-                    <h5 class="cardsTexts cardAuthor">{{this.author}}</h5>
-                    <h5 class="cardsTexts cardPrice"><b>{{this.price}}</b></h5>
-                    <p class="cardsTexts cardStock">{{this.stock}} unidades</p>
-                    <button data-id="{{this._id}}" class="addButton seeMoreAnchor">Agregar</button>
-                </div>
-            </div>
-        {{/each}}   
-    </div>
-    <div class="pagination">
-        <ul class="pagination">
-            <li>
-                <a{{#if pages.prevLink}} href="{{this.pages.prevLink}}" {{else}} href="" style="visibility: hidden" {{/if}}><< Antes</a>
-            </li>
-            <li id="paginationNumber">
-                {{pages.page}}
-            </li>
-            <li>
-                <a{{#if pages.nextLink}} href="{{this.pages.nextLink}}" {{else}} href="" style="visibility: hidden" {{/if}}> Siguiente >></a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<!-- Botón que redirige a la vista de chat -->
+<!-- Redireccionador al chat -->
 <section>
     <div class="iconChatContainer">
         <a href="/api/chat"><img class="iconChat" src="https://i.imgur.com/nr0312M.png" alt=""></a>
@@ -105,6 +65,34 @@
     </div>
 </section>
 
+<!-- Login Box -->
+<section>
+    <div class="loginContainer">
+        <form class="loginContent" id="loginForm">
+            <div class="imageChatContainer">
+                <img class="imageChat" src="https://i.imgur.com/TTkylmw.png" alt="">
+            </div>
+            <div class="loginBox">
+                <div class="inputsContainer">
+                    <label class="instructions">Ingresa correo electronico</label>
+                    <input type="text" class="loginInput" id="name" name="email" placeholder="paquitaladelbarrio@teleseries.cl">
+                </div>
+                <div class="inputsContainer">
+                    <label class="instructions">Ingresa tu password</label>
+                    <input type="password" class="loginInput" id="email" name="password" placeholder="••••••••">
+                </div>
+                <!-- <button class="sendEmail" id="getCookies">Obtener cookies</button> -->
+                <button type="submit" class="sendEmail" id="setCookie">Entrar</button>
+                <div class="options">
+                    <a href="/home">Continuar sin ingresar</a>
+                    <a href="/signup">Resgístrate</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
     <div class="iconsFooterGroup">
         <div class="iconsListContainer">
@@ -119,7 +107,4 @@
     </div>
 </footer>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/socketServer.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/products.js"></script>
+<script type="module" src="/js/login.js"></script>

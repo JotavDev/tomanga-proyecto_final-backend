@@ -57,52 +57,7 @@
     </nav>
 </header>
 
-<div class="cartContainer">
-    <div class="subCartContainer">
-        <div class="detailsCartContainer">
-            <div class="cartDetails">
-            {{#each products}}
-                <div class="itemCart">
-                    <div class="imgCart">
-                        <img src="{{this.product.thumbnail}}"/>
-                    </div>
-                    <div class="textDetails">
-                        <table>
-                            <tr>
-                                <td class="title">{{this.product.title}}</td>
-                                <td class="volume">{{this.product.volume}}</td>
-                                <td class="generalDetails">Precio: {{this.product.price}}</td>
-                                <td class="generalDetails">Cantidad: {{this.qty}}</td>
-                                <td class="generalDetails">Total: {{this.product.price}}</td>
-                                <td id="tdImage"><img data-id="{{this._id}}" class="trashIcon" src="https://i.imgur.com/FM4la5Q.png" alt="trash icon" title="Borrar producto"></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            {{/each}}
-            </div>
-            <div class="cartResume">
-                <div class="purchaseDetail">
-                    <div class="resumeContainer">
-                        <h2 class="titleDetail">Detalles de tu compra</h2>
-                        <div class="specifications">
-                            <p class="generalDetails">Total de productos:</p>
-                            <p class="generalDetails">1</p>
-                        </div>
-                        <div class="specifications">
-                            <p class="generalDetails">Valor total:</p>
-                            <p class="generalDetails">$20.98</p>
-                        </div>
-                    </div>
-                    <div class="buttonContainer">
-                        <button class="finishPurchaseButton"><a class="comunicationAnchor" href="">Finalizar compra</a></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<!-- Chat-icon -->
 <section>
     <div class="iconChatContainer">
         <a href="/api/chat"><img class="iconChat" src="https://i.imgur.com/nr0312M.png" alt=""></a>
@@ -110,6 +65,35 @@
     </div>
 </section>
 
+<!-- Profile -->
+<section>
+    <div class="profileContainer">
+        <div class="profileDetails">
+            <div class="userName">
+                <h2 class="welcomeToProfileMessage">Konnichiwa, {{user.first_name}}!</h2>
+                <img class="avatar" src="https://i.imgur.com/4dYQAth.png" alt="">
+            </div>
+            <div class="profileSections" id="firstSectionProfile">
+                <h4>Informacion personal</h4>
+                <h6 class="firstItem">Datos de usuario</h6>
+                <h6>Datos de envío</h6>
+            </div>
+            <div class="profileSections">
+                <h4>Mis compras</h4>
+                <h6 class="firstItem">Pedidos en curso</h6>
+                <h6>Pedidos finalizados</h6>
+            </div>
+            <div class="profileSections">
+                <a href="/auth/logout"><h5>Cerrar sesion</h5></a>
+            </div>
+        </div>
+        <div class="profileConfiguration">
+            <!-- Aquí se podrán modificar los datos de perfil y ver el historial y progreso de pedidos -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
   <div class="iconsFooterGroup">
     <div class="iconsListContainer">
