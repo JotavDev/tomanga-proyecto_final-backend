@@ -77,28 +77,33 @@
         <h2>Regístrate</h2>
 
         <div class="labels">
-          <label for="">Nombre</label>
-          <input type="text" name="first_name" />
+          <label for="first_name">Nombre</label>
+          <input type="text" name="first_name" id="first_name" required />
+          <span class="error-message"></span>
         </div>
 
         <div class="labels">
-          <label for="">Apellido</label>
-          <input type="text" name="last_name" />
+          <label for="last_name">Apellido</label>
+          <input type="text" name="last_name" id="last_name" required />
+          <span class="error-message"></span>
         </div>
 
         <div class="labels">
-          <label for="">Fecha de nacimiento</label>
-          <input type="date" name="age" />
+          <label for="age">Fecha de nacimiento</label>
+          <input type="date" name="age" id="age" required />
+          <span class="error-message"></span>
         </div>
 
         <div class="labels">
-          <label for="">Correo</label>
-          <input type="email" name="email" />
+          <label for="email">Correo</label>
+          <input type="email" name="email" id="email" required />
+          <span class="error-message"></span>
         </div>
 
         <div class="labels">
-          <label for="">Password</label>
-          <input type="password" name="password" />
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required />
+          <span class="error-message"></span>
         </div>
 
         <button type="submit" class="buttonSignup">Crear usuario</button>

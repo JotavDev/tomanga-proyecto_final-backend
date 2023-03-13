@@ -408,6 +408,12 @@
     margin-bottom: 20px;
 }
 
+#narutoImageContainer{
+    width: 125px;
+    height: 125px;
+    margin-bottom: 15px;
+}
+
 .imageChat{
     width: 100%;
     height: 100%;
@@ -453,6 +459,37 @@
     border-radius: 5px;
     border: none;
     margin-top: 2em;
+}
+
+.buttonThirdParties{
+    width: 35%;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.buttonThirdParties a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.buttonThirdParties img{
+    width: 20px;
+    height: 20px;
+}
+
+#githubButton{
+    background-color: #2DBA4E;
+}
+
+#googleButton{
+    background-color: #1D57E7;
 }
 
 .validate{
@@ -764,12 +801,13 @@ td{
 }
 
 .loginInput{
+    text-align: center;
     width: 70%;
     background: none;
     border: none;
     border-bottom: 2px solid #8d0000;
     height: 1.5em;
-    margin-top: 2em;
+    margin-top: 0.5em;
 }
 
 .loginInput::placeholder{
@@ -784,6 +822,13 @@ td{
     color: #FFFFFF;
     border: none;
     border-radius: 8px;
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 17px;
+}
+
+.resetPassword{
+    text-decoration: none;
+    color: #8d0000;
     font-family: 'bebas-neue', sans-serif;
     font-size: 17px;
 }
@@ -958,3 +1003,4 @@ td{
     font-family: 'bebas-neue', sans-serif;
     font-size: 1.1em;
 }
+

@@ -42,4 +42,12 @@ router.get('/', privateAccess ,(req,res) => {
     })
 })
 
+// Forgot Password
+router.get('/auth/forgotPassword', (req,res) => {
+    res.render('forgotPassword', {
+        style: "/index.css",
+        title: " | Restaurar contraseña"
+    })
+})
+
 export default router;

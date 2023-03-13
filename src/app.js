@@ -1,17 +1,19 @@
-import express from 'express';
-import expressHandlebars from 'express-handlebars';
+import express from 'express'; //
+import expressHandlebars from 'express-handlebars'; //
 import Handlebars from 'handlebars';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 import { Server } from 'socket.io'
-import MongoStore from 'connect-mongo';
-import mongoose from 'mongoose';
+import MongoStore from 'connect-mongo'; //
+import mongoose from 'mongoose'; //
 import cookieParser from 'cookie-parser';
-import session from 'express-session';
+import session from 'express-session'; //
 import { port } from './config/index.js';
 import { secret } from './config/index.js'
-import routes from './routes/index.js';
-import __dirname from './utils.js';
+import routes from './routes/index.js'; //
+import { __dirname } from './utils.js';
 import messageManager from './dao/mongo/messages/messageManager.mongo.js';
+import passport from 'passport'; //
+import initializePassport from './config/passport.config.js'; //
 
 const app = express();
 const messages = new messageManager();
@@ -36,6 +38,13 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+
+// Passport && local-passport
+initializePassport()
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Cookie Parser
 app.use(cookieParser())
 
 routes(app)

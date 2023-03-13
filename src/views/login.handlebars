@@ -66,7 +66,7 @@
 <section>
     <div class="loginContainer">
         <form class="loginContent" id="loginForm">
-            <div class="imageChatContainer">
+            <div class="imageChatContainer" id="narutoImageContainer">
                 <img class="imageChat" src="https://i.imgur.com/TTkylmw.png" alt="">
             </div>
             <div class="loginBox">
@@ -78,8 +78,17 @@
                     <label class="instructions">Ingresa tu password</label>
                     <input type="password" class="loginInput" id="email" name="password" placeholder="••••••••">
                 </div>
+                <a class="resetPassword" href="/auth/forgotPassword">Restaurar password</a>
                 <!-- <button class="sendEmail" id="getCookies">Obtener cookies</button> -->
                 <button type="submit" class="sendEmail" id="setCookie">Entrar</button>
+                <button class="buttonThirdParties" id="githubButton">
+                    <a class="thirdParties" href="/auth/github">Entrar con github</a>
+                    <img src="https://i.imgur.com/9lkPO3l.png" alt="">
+                </button>
+                <button class="buttonThirdParties" id="googleButton">
+                    <a class="thirdParties" href="/auth/google">Entrar con google</a>
+                    <img src="https://i.imgur.com/XGVzocm.png" alt="">
+                </button>
                 <div class="options">
                     <a href="/home">Continuar sin ingresar</a>
                     <a href="/signup">Resgístrate</a>
