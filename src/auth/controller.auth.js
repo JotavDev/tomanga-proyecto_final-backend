@@ -1,8 +1,8 @@
 import Router from 'express';
 import passport from 'passport';
 import User from '../dao/models/user.model.js'
-// Aquí le quité la function 'isValidPassword', por si crashea y no sé que quité
-import { createHash } from '../utils/cryptPassword.js';
+import { createHash, isValidPassword } from '../utils/cryptPassword.js';
+import { generateToken, authToken } from '../utils/jwt.utils.js';
 
 const router = Router();
 

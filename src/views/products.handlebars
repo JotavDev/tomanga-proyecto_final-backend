@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="liNavbar">
-                    <a class="anchorNavbar" href="cart/63f7f777e0ca673798416a4e">
+                    <a class="anchorNavbar" href="cart/{{user.cart._id}}">
                         <img class="iconsNavbar" class="imgNavbar" src="https://i.imgur.com/vVIc2Li.png" alt="">
                     </a>
                 </li>
@@ -74,7 +74,7 @@
                     <h5 class="cardsTexts cardAuthor">{{this.author}}</h5>
                     <h5 class="cardsTexts cardPrice"><b>{{this.price}}</b></h5>
                     <p class="cardsTexts cardStock">{{this.stock}} unidades</p>
-                    <button data-id="{{this._id}}" class="addButton seeMoreAnchor">Agregar</button>
+                    <button data-id="{{this._id}}" data-cart="{{../user.cart._id}}" class="addButton seeMoreAnchor">Agregar</button>
                 </div>
             </div>
         {{/each}}   

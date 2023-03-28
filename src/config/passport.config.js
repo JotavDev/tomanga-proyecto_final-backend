@@ -6,8 +6,10 @@ import User from "../dao/models/user.model.js";
 import { createHash, isValidPassword } from "../utils/cryptPassword.js";
 import { githubID, githubSecret } from "../config/index.js";
 import { googleID, googleSecret } from "../config/index.js";
+import cartsManager from "../dao/mongo/cart/cartManager.mongo.js";
 
 const localStrategy = local.Strategy;
+const cartManager = new cartsManager();
 
 const initializePassport = () => {
     // Registro
@@ -22,14 +24,17 @@ const initializePassport = () => {
                     return done(null, false)
                 }
 
+                const cart = await cartManager.create()
+
                 const newUserInfo = {
                     first_name,
                     last_name,
                     age,
                     email,
-                    password: createHash(password)
+                    password: createHash(password),
+                    cart
                 }
-
+                
                 const newUser = await User.create(newUserInfo)
 
                 return done(null, newUser)

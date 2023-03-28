@@ -12,7 +12,8 @@ router.get('/', async (req, res) => {
             product: await response.payload,
             title: "| Los mejores mangas",
             style: "/index.css",
-            pages: await response
+            pages: await response,
+            user: req.user
         })
     } catch(error){
         res.status(500).json({error})

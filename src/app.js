@@ -7,6 +7,7 @@ import MongoStore from 'connect-mongo'; //
 import mongoose from 'mongoose'; //
 import cookieParser from 'cookie-parser';
 import session from 'express-session'; //
+import morgan from 'morgan';
 import { port } from './config/index.js';
 import { secret } from './config/index.js'
 import routes from './routes/index.js'; //
@@ -38,6 +39,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+
+app.use(morgan('dev'));
 
 // Passport && local-passport
 initializePassport()

@@ -24,7 +24,15 @@ const userSchema = new mongoose.Schema({
     admin: {
         type: Boolean,
         default: false
+    },
+    cart: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'carts'
     }
+})
+
+userSchema.pre('findOne', function(){
+    this.populate('cart')
 })
 
 const User = mongoose.model(userCollection, userSchema)

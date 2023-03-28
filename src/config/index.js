@@ -7,3 +7,4 @@ export let githubID = process.env.GITHUB_ID;
 export let githubSecret = process.env.GITHUB_SECRET;
 export let googleID = process.env.GOOGLE_ID;
 export let googleSecret = process.env.GOOGLE_SECRET;
+export let secretKey = process.env.SECRET_KEY
